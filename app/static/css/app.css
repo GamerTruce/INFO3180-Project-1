@@ -1,3 +1,252 @@
 body {
     padding-top: 5rem;
+    background-color:#f3f4f6;
 }
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  form {
+    background-color: rgb(255, 255, 255);
+    display:table;
+    position:relative;
+    padding-top: 4%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    width: 1000px;
+     height: 500px;
+    
+  }
+
+/*  .div-center {
+  width: 400px;
+  height: 400px;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  padding: 1em 2em;
+  border-bottom: 2px solid #ccc;
+  display: table;
+} */
+
+  
+  form input,
+  select,
+  textarea {
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    background-color: #fff;
+    
+    padding: 10px;
+    outline: none;
+    display: block;
+    
+  }
+  
+  form input:focus,
+  select:focus,
+  textarea:focus {
+    border: solid 1px #15b8a7;
+    box-shadow: 0 0 5px #15b8a7;
+    outline: none;
+  }
+  
+  .double-field {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+  }
+  
+  .double-field input,
+  .double-field select {
+    width: 63%;
+  }
+  
+  .double-field div {
+    margin-right: 20px;
+  }
+  
+  textarea {
+    resize: none;
+    width: 80%;
+  }
+  
+  .long-field input {
+    width: 80%;
+  }
+  
+  .prop-header {
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+  
+  input[type="submit"] {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    
+    padding: 10px 20px;
+    margin: 20px 0;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #055b94;
+    
+  }
+  
+  input[type="file"] {
+    background: #ffffff;
+    border: none;
+  }
+  .short-field {
+    width: 50%;
+  }
+  .short-field input {
+    width: 60%;
+  }
+  
+  .property-card {
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 #00000033;
+    margin-bottom: 50px;
+    
+  }
+
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  .property-photo {
+    width: 100%;
+    height: 300px;
+    border-radius: 15px 15px 0px 0px;
+  }
+  
+  .navbar {
+ 
+    background-color: #15b8a7;
+   
+  }
+  
+  .property-description {
+    padding: 20px;
+  }
+  
+  .property-description h5 {
+    font-weight: bold;
+  }
+  
+  .property-card button {
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: none;
+    background-color: #15b8a7;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 0px 0px 5px 5px;
+    transition: all 0.3s ease;
+  }
+
+
+  #properties {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+  }
+
+  .price {
+    background-color: #60a4fa;
+    border-radius: 20px;
+    padding: 5px 12px;
+    text-align: center;
+    color: #ffffff;
+    width: 30%;
+  }
+  .property-card button:hover {
+    background-color: #139689;
+    cursor: pointer;
+  }
+  
+  .property-description p {
+    color: #6b6b6bc4;
+  }
+  
+  .property-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+  }
+  
+  .property-container {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    width: 80%;
+    margin: 30px 0;
+    box-shadow: 0 4px 8px 0 #00000033;
+    background-color: white;
+  }
+  
+  .property-img {
+    height: 100%;
+    width: 95%;
+  }
+  
+  .bubbles {
+    display: flex;
+  }
+
+  .bubble {
+    text-align: center;
+    border-radius: 30px;
+    padding: 6px 20px;
+    color: #ffffff;
+    margin: 10px 20px 10px 0px;
+  }
+  
+  .prop-price {
+    background: #61a5fa;
+  }
+  
+  .prop-type {
+    background: #fbbf23;
+  }
+  
+  .property-body {
+    padding: 20px;
+    
+  }
+  
+  .email-btn {
+    background-color: #15b8a7;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;   
+    padding: 10px 20px;
+    margin: 20px 0;
+  }
+  
+  .no-rooms {
+    margin: 15px 0;
+  }
+  .email-btn:hover {
+    background-color: #139689;
+   
+  }

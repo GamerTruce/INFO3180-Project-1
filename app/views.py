@@ -6,22 +6,21 @@ This file creates your application.
 """
 import os
 from app import app,db
-from flask import render_template, request, redirect, url_for,flash
+from flask import render_template, request, redirect, url_for,flash, Markup
 from .model import PropertyModel
 from werkzeug.utils import secure_filename
 from flask.helpers import send_from_directory
 from .prop_form import PropertyForm
 
 
-def images():
-    upload = app.config.get('UPLOAD_FOLDER')
-    return sorted(os.listdir(upload))
-
-
-
 ###
 # Routing for your application.
 ###
+
+@app.route('/icon/')
+def icon():
+   svg = open('file.svg').read
+   return render_template('test.html', svg=Markup(svg))
 
 @app.route('/')
 def home():
@@ -51,18 +50,18 @@ def prop_form():
             photo = propform.photo.data
 
             # Get file data and save to your uploads folder
-            directory = secure_filename(photo.filename)     
-            property_model = PropertyModel(title = title, numberofbdr = numberofbdr, numberofbath = numberofbath, location = location, price = price, property_type=property_type, description=description, photo = directory)
-            if property_model is not None:
-                db.session.add(property_model)
-                db.session.commit()
-                photo.save(os.path.join(app.config['UPLOAD_FOLDER'], directory))
-                flash('Property was sucessflly saved.', 'success')
-                return redirect(url_for('properties'))           
-            else:
-                flash('Property was not saved.', 'unsucessful')
+            filename = secure_filename(photo.filename)     
+           
+             
+            db.session.add(PropertyModel(title,numberofbdr,numberofbath,location,price,property_type,description,filename))
+            db.session.commit()
+            photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            flash('Property was sucessflly saved.', 'success')
+            return redirect(url_for('properties'))           
+    else:
+        flash('Property was not saved.', 'unsucessful')
     
-    return render_template('property.html', form=propform)
+    return render_template('property.html', propform=propform)
 
 
 @app.route('/properties')
@@ -73,17 +72,10 @@ def properties():
 
 
 @app.route('/properties/<propertyid>')
-def indiv_prop(property_id):
+def indiv_prop(propertyid):
     """Render the website's individual property by the specific property id."""
-    property = PropertyModel.query.filter_by(id=property_id).first()
+    property = PropertyModel.query.filter_by(id=propertyid).first()
     return render_template('indiv_prop.html', property=property)
-
-
-@app.route('/uploads/<filename>')
-def uploads(filename):
-    upload_directory = app.config.get('UPLOAD_FOLDER')
-    print(upload_directory)
-    return send_from_directory(upload_directory, filename=filename)
 
 
 
@@ -105,6 +97,10 @@ def send_text_file(file_name):
     """Send your static text file."""
     file_dot_text = file_name + '.txt'
     return app.send_static_file(file_dot_text)
+
+@app.route('/uploads/<filename>')
+def uploads(filename):
+    return send_from_directory(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER']), filename)
 
 
 @app.after_request

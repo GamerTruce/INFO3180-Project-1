@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="property-wrapper">
+  <div class="property-container">
+    <img
+      class="property-img"
+      src="{{ url_for('uploads', filename=property.photo) }}"
+      alt="property_img"
+    />
+    <div class="property-body">
+      <h2>{{property.title}}</h2>
+      
+      
+      <div class="bubbles">
+        <div class="prop-price bubble">
+          ${{property.price}}
+        </div>
+
+        <div class="prop-type bubble">
+          {{property.property_type.value.capitalize()}}
+        </div>
+      </div>
+
+
+      <div>
+        <p>{{property.description}}</p>
+        </div>
+
+     
+      <div class="no-rooms"> 
+        <i class="mx-2 fa-solid fa-bed "></i>{{property.numberofbdr}} Bedrooms &nbsp;&nbsp;&nbsp;  
+        <i class="mx-2 fa-solid fa-bath"></i>{{property.numberofbath}} Bathrooms 
+      </div>
+     
+      <div class="location">
+        <i class="mx-2 bi bi-geo-alt"></i>{{property.location}}
+      </div>
+      
+      <button class="email-btn">Email Realtor</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

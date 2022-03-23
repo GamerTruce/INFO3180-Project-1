@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block main %}
+
+<h1 class="prop-header">Add New Property</h1>
+<form action="{{ url_for('prop_form') }}" method="post" enctype="multipart/form-data">
+
+<div class="div-center">
+  <div id="form-wrapper">
+    {{ propform.csrf_token }}
+
+    
+    <div class="form-group long-field">
+      {{ propform.title.label }}
+      {{ propform.title(required='required') }}
+    </div>
+
+
+    <div class="form-group">
+      {{ propform.description.label }} 
+      {{ propform.description(required='required') }}
+    </div>
+
+
+    <div class="form-group double-field">
+      <div>
+        {{ propform.numberofbdr.label }}
+        {{ propform.numberofbdr(required='required') }}
+      </div>
+     
+      <div>
+        {{ propform.numberofbath.label }}
+         {{ propform.numberofbath(required='required')}}
+      </div>
+    </div>
+
+    <div class="form-group double-field">
+      <div>{{ propform.price.label }}
+          {{ propform.price}}
+      </div>
+      
+      <div>{{ propform.property_type.label }}
+           {{propform.property_type}}
+      </div>
+    </div>
+
+
+    <div class="form-group short-field">
+      {{propform.location.label}} 
+      {{propform.location}}
+    </div>
+    <div>{{ propform.photo.label }} 
+         {{ propform.photo }}
+    </div>
+    
+    <div>
+      {{ propform.submit}}
+    </div>
+  </div>
+</div>
+</form>
+
+{% endblock %}
