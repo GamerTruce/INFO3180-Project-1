@@ -1,4 +1,4 @@
-from . import db
+from app import db
 import enum
 from sqlalchemy import Enum, Integer
 

@@ -5,9 +5,9 @@ Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file creates your application.
 """
 import os
-from app import app,db
+from app import app, db
 from flask import render_template, request, redirect, url_for,flash, Markup
-from .model import PropertyModel
+from app.model import PropertyModel
 from werkzeug.utils import secure_filename
 from flask.helpers import send_from_directory
 from .prop_form import PropertyForm
